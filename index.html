@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvest Connect - From Farm to Fork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4d7c0f',secondary:'#84cc16'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Lora', serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 60%, rgba(0, 0, 0, 0) 70%),
+url('https://readdy.ai/api/search-image?query=A%20serene%20organic%20farm%20landscape%20with%20rows%20of%20vibrant%20vegetables%20and%20fruits%2C%20bathed%20in%20golden%20sunlight.%20The%20scene%20shows%20lush%20green%20fields%20with%20a%20variety%20of%20colorful%20produce.%20The%20right%20side%20of%20the%20image%20features%20more%20detailed%20farm%20elements%20while%20the%20left%20side%20has%20a%20clean%2C%20simple%20background%20that%20would%20allow%20text%20to%20be%20clearly%20visible.%20The%20transition%20from%20left%20to%20right%20is%20natural%20and%20gradual%2C%20with%20the%20farm%20details%20becoming%20more%20prominent%20on%20the%20right%20side.&width=1200&height=600&seq=farm1&orientation=landscape');
+background-size: cover;
+background-position: center right;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #4d7c0f;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #4d7c0f;
+}
+.custom-checkbox:checked::after {
+content: "";
+position: absolute;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+top: 2px;
+left: 6px;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Navigation -->
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">EarthNest</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#" class="font-medium hover:text-primary transition-colors">Shop</a>
+<a href="#" class="font-medium hover:text-primary transition-colors">About Us</a>
+<a href="#" class="font-medium hover:text-primary transition-colors">Farm Partners</a>
+<a href="#" class="font-medium hover:text-primary transition-colors">Sustainability</a>
+<a href="#" class="font-medium hover:text-primary transition-colors">Blog</a>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-search-line ri-lg"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-user-line ri-lg"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center relative">
+<i class="ri-shopping-basket-line ri-lg"></i>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+</div>
+<div class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero-section min-h-[600px] flex items-center">
+<div class="container mx-auto px-4 py-16 w-full">
+<div class="max-w-xl">
+<h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">From Farm to Fork – Fresh, Organic, Local</h1>
+<p class="text-lg mb-8 text-gray-700">Connect directly with local farmers and enjoy the freshest organic produce delivered straight to your doorstep.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-button font-medium transition-colors whitespace-nowrap">Shop Fresh Produce</button>
+<button class="bg-white border-2 border-primary text-primary hover:bg-gray-50 py-3 px-8 rounded-button font-medium transition-colors whitespace-nowrap">Meet Our Farmers</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Categories -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Fresh from the Farm</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Discover our selection of locally grown, organic produce harvested at peak freshness.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white rounded shadow-md overflow-hidden transition-transform hover:translate-y-[-5px]">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20beautifully%20arranged%20seasonal%20farm%20box%20filled%20with%20a%20variety%20of%20colorful%20organic%20vegetables%20and%20fruits.%20The%20produce%20looks%20fresh%20and%20vibrant%2C%20with%20items%20like%20leafy%20greens%2C%20carrots%20with%20tops%2C%20tomatoes%2C%20apples%2C%20and%20herbs.%20The%20box%20is%20wooden%20or%20kraft%20paper%20with%20a%20rustic%2C%20eco-friendly%20appearance.%20The%20background%20is%20simple%20and%20clean%20to%20highlight%20the%20fresh%20produce.%20The%20lighting%20is%20bright%20and%20natural%20to%20showcase%20the%20vivid%20colors%20and%20freshness%20of%20the%20organic%20items.&width=400&height=300&seq=farmbox1&orientation=landscape" alt="Farm Boxes" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Farm Boxes</h3>
+<p class="text-gray-600 mb-4">Weekly curated bundles of seasonal produce delivered fresh from our partner farms.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Explore Boxes
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="bg-white rounded shadow-md overflow-hidden transition-transform hover:translate-y-[-5px]">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20display%20of%20seasonal%20organic%20produce%20arranged%20artistically.%20The%20image%20shows%20a%20variety%20of%20colorful%20vegetables%20and%20fruits%20that%20are%20currently%20in%20season%2C%20such%20as%20summer%20squash%2C%20berries%2C%20tomatoes%2C%20and%20leafy%20greens.%20The%20produce%20looks%20exceptionally%20fresh%2C%20with%20vibrant%20colors%20and%20natural%20textures.%20The%20arrangement%20suggests%20abundance%20and%20variety%2C%20with%20a%20rustic%2C%20farm-fresh%20aesthetic.%20The%20background%20is%20simple%20and%20clean%20to%20highlight%20the%20seasonal%20bounty.%20Natural%20lighting%20enhances%20the%20fresh%20appearance%20of%20the%20produce.&width=400&height=300&seq=seasonal2&orientation=landscape" alt="Seasonal Produce" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Seasonal Produce</h3>
+<p class="text-gray-600 mb-4">The freshest picks of the season, harvested at peak ripeness for maximum flavor.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Shop Seasonal
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="bg-white rounded shadow-md overflow-hidden transition-transform hover:translate-y-[-5px]">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20arrangement%20of%20fresh%20organic%20fruits%20displayed%20in%20rustic%20wooden%20crates%20or%20baskets.%20The%20image%20features%20a%20variety%20of%20colorful%20fruits%20including%20apples%2C%20berries%2C%20peaches%2C%20and%20citrus%20fruits.%20The%20fruits%20look%20perfectly%20ripe%20with%20vibrant%2C%20natural%20colors%20and%20textures.%20Some%20fruits%20are%20whole%20while%20others%20are%20cut%20to%20show%20their%20juicy%20interiors.%20The%20arrangement%20has%20a%20farm-fresh%20aesthetic%20with%20a%20simple%2C%20clean%20background%20that%20highlights%20the%20natural%20beauty%20of%20the%20organic%20fruits.%20Natural%20lighting%20enhances%20the%20fresh%20appearance%20of%20the%20produce.&width=400&height=300&seq=fruits3&orientation=landscape" alt="Fresh Fruits" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Fresh Fruits</h3>
+<p class="text-gray-600 mb-4">Sweet, juicy, and bursting with flavor – organic fruits grown with care by local farmers.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Browse Fruits
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="bg-white rounded shadow-md overflow-hidden transition-transform hover:translate-y-[-5px]">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20beautiful%20display%20of%20fresh%20organic%20vegetables%20arranged%20in%20a%20visually%20appealing%20way.%20The%20image%20shows%20a%20variety%20of%20colorful%20vegetables%20including%20leafy%20greens%2C%20root%20vegetables%2C%20tomatoes%2C%20peppers%2C%20and%20herbs.%20The%20vegetables%20appear%20freshly%20harvested%20with%20rich%2C%20vibrant%20colors%20and%20natural%20textures.%20Some%20vegetables%20still%20have%20soil%20or%20roots%20attached%20to%20emphasize%20their%20farm-fresh%20nature.%20The%20arrangement%20has%20a%20rustic%2C%20organic%20aesthetic%20with%20a%20simple%2C%20clean%20background%20that%20highlights%20the%20natural%20beauty%20of%20the%20produce.%20Natural%20lighting%20enhances%20the%20fresh%20appearance%20of%20the%20vegetables.&width=400&height=300&seq=veggies4&orientation=landscape" alt="Organic Vegetables" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2">Organic Vegetables</h3>
+<p class="text-gray-600 mb-4">Nutrient-rich vegetables grown without synthetic pesticides or fertilizers.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Shop Vegetables
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Why Choose Us</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">We're committed to sustainable agriculture, supporting local farmers, and providing you with the freshest organic produce.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded shadow-md text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-plant-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-semibold mb-3">Fresh Local Produce</h3>
+<p class="text-gray-600">Our produce travels less than 100 miles from farm to your table, ensuring maximum freshness and flavor.</p>
+</div>
+<div class="bg-white p-8 rounded shadow-md text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-earth-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-semibold mb-3">Sustainable Farming</h3>
+<p class="text-gray-600">We partner with farmers who practice sustainable agriculture, protecting soil health and biodiversity.</p>
+</div>
+<div class="bg-white p-8 rounded shadow-md text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center text-primary">
+<i class="ri-community-line ri-2x"></i>
+</div>
+</div>
+<h3 class="text-xl font-semibold mb-3">Community Support</h3>
+<p class="text-gray-600">Your purchase directly supports local farmers and strengthens our regional food system.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Farmers -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-bold mb-2">Meet Our Farmers</h2>
+<p class="text-gray-600">The passionate people behind your food</p>
+</div>
+<a href="#" class="text-primary font-medium hidden md:flex items-center">
+View All Farmers
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20portrait%20of%20a%20female%20organic%20farmer%20in%20her%2040s%20standing%20in%20her%20vegetable%20field.%20She%20is%20wearing%20casual%20farm%20clothes%2C%20possibly%20a%20plaid%20shirt%20and%20hat%2C%20looking%20confident%20and%20proud.%20She%20has%20a%20warm%2C%20genuine%20smile%20and%20is%20holding%20some%20freshly%20harvested%20vegetables.%20The%20background%20shows%20rows%20of%20organic%20crops%20and%20the%20natural%20farm%20environment.%20The%20lighting%20is%20natural%20and%20flattering%2C%20creating%20a%20authentic%20and%20approachable%20portrait%20of%20a%20real%20farmer.%20The%20image%20conveys%20passion%20for%20sustainable%20agriculture%20and%20connection%20to%20the%20land.&width=400&height=350&seq=farmer1&orientation=portrait" alt="Emily Richardson" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-1">Emily Richardson</h3>
+<p class="text-gray-500 text-sm mb-3">Sunrise Organic Farm • 12 miles away</p>
+<p class="text-gray-600 mb-4">Specializing in heirloom tomatoes and leafy greens, Emily has been farming organically for over 15 years.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Shop Emily's Produce
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20portrait%20of%20a%20male%20organic%20farmer%20in%20his%2050s%20standing%20in%20an%20orchard.%20He%20has%20a%20weathered%2C%20friendly%20face%20with%20laugh%20lines%20and%20is%20wearing%20work%20clothes%20and%20possibly%20a%20cap.%20He%20is%20holding%20some%20freshly%20picked%20apples%20or%20other%20orchard%20fruits.%20The%20background%20shows%20fruit%20trees%20and%20the%20natural%20farm%20environment.%20The%20lighting%20is%20natural%20and%20warm%2C%20creating%20an%20authentic%20and%20approachable%20portrait%20of%20a%20real%20farmer.%20The%20image%20conveys%20years%20of%20experience%2C%20passion%20for%20sustainable%20agriculture%2C%20and%20connection%20to%20the%20land.&width=400&height=350&seq=farmer2&orientation=portrait" alt="Michael Torres" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-1">Michael Torres</h3>
+<p class="text-gray-500 text-sm mb-3">Hillside Orchards • 8 miles away</p>
+<p class="text-gray-600 mb-4">A third-generation fruit grower, Michael's orchard produces exceptional apples, pears, and stone fruits.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Shop Michael's Produce
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20portrait%20of%20a%20young%20diverse%20couple%20%28late%2020s%2Fearly%2030s%29%20standing%20together%20on%20their%20small%20organic%20farm.%20They%20are%20wearing%20casual%20farm%20clothes%20and%20have%20friendly%2C%20enthusiastic%20expressions.%20They%20might%20be%20holding%20a%20basket%20of%20fresh%20vegetables%20or%20standing%20near%20their%20crops.%20The%20background%20shows%20their%20diverse%20farm%20with%20various%20vegetables%20growing.%20The%20lighting%20is%20natural%20and%20bright%2C%20creating%20an%20authentic%20and%20approachable%20portrait%20of%20real%20farmers.%20The%20image%20conveys%20youth%2C%20innovation%20in%20farming%2C%20passion%20for%20sustainable%20agriculture%2C%20and%20partnership.&width=400&height=350&seq=farmer3&orientation=portrait" alt="Aisha and James Wilson" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-1">Aisha & James Wilson</h3>
+<p class="text-gray-500 text-sm mb-3">Wildflower Farm • 15 miles away</p>
+<p class="text-gray-600 mb-4">This young couple started their regenerative farm five years ago, growing diverse vegetables and raising pastured chickens.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Shop Their Produce
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center md:hidden">
+<a href="#" class="inline-block text-primary font-medium">
+View All Farmers
+<div class="w-5 h-5 ml-2 inline-flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Impact Statistics -->
+<section class="py-16 bg-primary/5">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Our Impact</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Together with our customers, we're building a more sustainable and equitable food system.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded shadow-md text-center">
+<div class="text-4xl font-bold text-primary mb-2">42+</div>
+<h3 class="text-xl font-semibold mb-3">Local Farmers</h3>
+<p class="text-gray-600">Independent farmers supported through our marketplace</p>
+</div>
+<div class="bg-white p-8 rounded shadow-md text-center">
+<div class="text-4xl font-bold text-primary mb-2">1,250</div>
+<h3 class="text-xl font-semibold mb-3">Acres Farmed</h3>
+<p class="text-gray-600">Land maintained using sustainable agricultural practices</p>
+</div>
+<div class="bg-white p-8 rounded shadow-md text-center">
+<div class="text-4xl font-bold text-primary mb-2">15K+</div>
+<h3 class="text-xl font-semibold mb-3">Families Fed</h3>
+<p class="text-gray-600">Households enjoying fresh, local produce through our platform</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Seasonal Highlights -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Summer Harvest Highlights</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Discover what's fresh and in season right now from our partner farms.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="bg-white rounded shadow-sm overflow-hidden text-center">
+<div class="h-40 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Close-up%20of%20fresh%2C%20ripe%20organic%20heirloom%20tomatoes%20in%20various%20colors%20%28red%2C%20yellow%2C%20purple%2C%20striped%29%20arranged%20on%20a%20simple%2C%20clean%20background.%20The%20tomatoes%20look%20perfectly%20ripe%20with%20vibrant%20colors%20and%20natural%20texture.%20The%20lighting%20is%20bright%20and%20natural%20to%20showcase%20the%20beautiful%20variations%20and%20freshness%20of%20these%20organic%20heirloom%20tomatoes.%20The%20image%20has%20a%20clean%2C%20minimalist%20aesthetic%20that%20highlights%20the%20natural%20beauty%20of%20the%20produce.&width=300&height=200&seq=tomatoes&orientation=landscape" alt="Heirloom Tomatoes" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="font-semibold">Heirloom Tomatoes</h3>
+<p class="text-gray-500 text-sm">Sunrise Organic Farm</p>
+<p class="text-primary font-medium mt-2">$4.99/lb</p>
+</div>
+</div>
+<div class="bg-white rounded shadow-sm overflow-hidden text-center">
+<div class="h-40 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Close-up%20of%20fresh%20organic%20blueberries%20arranged%20on%20a%20simple%2C%20clean%20background.%20The%20blueberries%20look%20perfectly%20ripe%20with%20a%20deep%20blue%20color%20and%20natural%20bloom.%20Some%20leaves%20or%20stems%20might%20be%20visible%20to%20emphasize%20freshness.%20The%20lighting%20is%20bright%20and%20natural%20to%20showcase%20the%20beautiful%20color%20and%20freshness%20of%20these%20organic%20blueberries.%20The%20image%20has%20a%20clean%2C%20minimalist%20aesthetic%20that%20highlights%20the%20natural%20beauty%20of%20the%20produce.&width=300&height=200&seq=blueberries&orientation=landscape" alt="Organic Blueberries" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="font-semibold">Organic Blueberries</h3>
+<p class="text-gray-500 text-sm">Berry Good Farm</p>
+<p class="text-primary font-medium mt-2">$5.49/pint</p>
+</div>
+</div>
+<div class="bg-white rounded shadow-sm overflow-hidden text-center">
+<div class="h-40 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Close-up%20of%20fresh%20organic%20sweet%20corn%20with%20husks%20partially%20pulled%20back%20to%20reveal%20the%20kernels.%20The%20corn%20looks%20perfectly%20ripe%20with%20plump%2C%20golden%20kernels.%20The%20husks%20are%20green%20and%20fresh-looking.%20The%20lighting%20is%20bright%20and%20natural%20to%20showcase%20the%20beautiful%20color%20and%20freshness%20of%20this%20organic%20sweet%20corn.%20The%20image%20has%20a%20clean%2C%20minimalist%20aesthetic%20that%20highlights%20the%20natural%20beauty%20of%20the%20produce.&width=300&height=200&seq=corn&orientation=landscape" alt="Sweet Corn" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="font-semibold">Sweet Corn</h3>
+<p class="text-gray-500 text-sm">Meadow Creek Farm</p>
+<p class="text-primary font-medium mt-2">$0.75/ear</p>
+</div>
+</div>
+<div class="bg-white rounded shadow-sm overflow-hidden text-center">
+<div class="h-40 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Close-up%20of%20fresh%20organic%20zucchini%20and%20summer%20squash%20in%20various%20shapes%20and%20colors%20arranged%20on%20a%20simple%2C%20clean%20background.%20The%20squash%20looks%20perfectly%20ripe%20with%20vibrant%20colors%20and%20natural%20texture.%20The%20lighting%20is%20bright%20and%20natural%20to%20showcase%20the%20beautiful%20variations%20and%20freshness%20of%20these%20organic%20summer%20squashes.%20The%20image%20has%20a%20clean%2C%20minimalist%20aesthetic%20that%20highlights%20the%20natural%20beauty%20of%20the%20produce.&width=300&height=200&seq=squash&orientation=landscape" alt="Summer Squash" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="font-semibold">Summer Squash</h3>
+<p class="text-gray-500 text-sm">Wildflower Farm</p>
+<p class="text-primary font-medium mt-2">$2.99/lb</p>
+</div>
+</div>
+</div>
+<div class="mt-10 text-center">
+<button class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-button font-medium transition-colors whitespace-nowrap">View All Seasonal Produce</button>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">What Our Customers Say</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Hear from families who have made the switch to fresh, local organic produce.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded shadow-md">
+<div class="flex items-center text-yellow-400 mb-4">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"The difference in flavor is incredible. My kids actually ask for seconds of vegetables now! I love knowing exactly where our food comes from and supporting local farmers."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%2035-year-old%20woman%20with%20a%20warm%2C%20friendly%20smile.%20She%20has%20medium-length%20brown%20hair%20and%20is%20wearing%20casual%20but%20professional%20attire.%20The%20background%20is%20neutral%20and%20simple.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20natural%2C%20approachable%20portrait.%20The%20image%20is%20cropped%20to%20focus%20on%20her%20face%20and%20shoulders%2C%20suitable%20for%20a%20profile%20picture%20or%20testimonial.&width=100&height=100&seq=customer1&orientation=squarish" alt="Rebecca Thompson" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold">Rebecca Thompson</h4>
+<p class="text-gray-500 text-sm">Weekly Box Subscriber • 8 months</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded shadow-md">
+<div class="flex items-center text-yellow-400 mb-4">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"As a chef, I'm always looking for the best ingredients. The quality and freshness of the produce from these local farms is unmatched. It's transformed my home cooking."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%2040-year-old%20man%20with%20a%20confident%2C%20friendly%20expression.%20He%20has%20short%20dark%20hair%20and%20is%20wearing%20casual%20but%20professional%20attire.%20The%20background%20is%20neutral%20and%20simple.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20natural%2C%20approachable%20portrait.%20The%20image%20is%20cropped%20to%20focus%20on%20his%20face%20and%20shoulders%2C%20suitable%20for%20a%20profile%20picture%20or%20testimonial.&width=100&height=100&seq=customer2&orientation=squarish" alt="David Chen" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold">David Chen</h4>
+<p class="text-gray-500 text-sm">À La Carte Customer • 1 year</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded shadow-md">
+<div class="flex items-center text-yellow-400 mb-4">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-fill"></i>
+</div>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"I love the connection to the farmers who grow our food. The weekly newsletter with updates from the farms and seasonal recipes has made me a more confident and creative cook."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%2030-year-old%20woman%20with%20a%20warm%2C%20friendly%20smile.%20She%20has%20curly%20hair%20and%20is%20wearing%20casual%20but%20professional%20attire.%20The%20background%20is%20neutral%20and%20simple.%20The%20lighting%20is%20soft%20and%20flattering%2C%20creating%20a%20natural%2C%20approachable%20portrait.%20The%20image%20is%20cropped%20to%20focus%20on%20her%20face%20and%20shoulders%2C%20suitable%20for%20a%20profile%20picture%20or%20testimonial.&width=100&height=100&seq=customer3&orientation=squarish" alt="Maya Johnson" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold">Maya Johnson</h4>
+<p class="text-gray-500 text-sm">Family Box Subscriber • 6 months</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-16 bg-primary/10">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+<p class="text-gray-600 mb-8">Subscribe to receive seasonal recipes, farming updates, and exclusive offers.</p>
+<form class="flex flex-col md:flex-row gap-4">
+<input type="email" placeholder="Your email address" class="flex-grow py-3 px-4 rounded border-none shadow-sm focus:ring-2 focus:ring-primary focus:outline-none">
+<button type="submit" class="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-button font-medium transition-colors whitespace-nowrap">Subscribe</button>
+</form>
+<div class="mt-6 flex items-center justify-center">
+<input type="checkbox" id="consent" class="custom-checkbox">
+<label for="consent" class="ml-2 text-sm text-gray-600">I agree to receive emails about products, updates, and promotions. You can unsubscribe at any time.</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white pt-16 pb-8 border-t border-gray-100">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-3xl font-['Pacifico'] text-primary mb-4 inline-block">EarthNest</a>
+<p class="text-gray-600 mb-6">Connecting local farmers with urban consumers for fresher, more sustainable food.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-instagram-line"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-4">Shop</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary">Farm Boxes</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Seasonal Produce</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Fresh Fruits</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Organic Vegetables</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Pantry Items</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-4">About</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary">Our Story</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Meet the Farmers</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Sustainability</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Blog</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-4">Help</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary">FAQs</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Delivery Information</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Returns Policy</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Contact Us</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Become a Partner Farm</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-100">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Harvest Connect. All rights reserved.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-gray-500 text-sm hover:text-primary">Privacy Policy</a>
+<a href="#" class="text-gray-500 text-sm hover:text-primary">Terms of Service</a>
+<a href="#" class="text-gray-500 text-sm hover:text-primary">Cookie Policy</a>
+<a href="#" class="text-gray-500 text-sm hover:text-primary">Accessibility</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="checkbox-script">
+document.addEventListener('DOMContentLoaded', function() {
+const checkbox = document.getElementById('consent');
+if (checkbox) {
+checkbox.addEventListener('change', function() {
+if (this.checked) {
+console.log('User consented to marketing emails');
+} else {
+console.log('User declined marketing emails');
+}
+});
+}
+});
+</script>
+</body>
+</html>
